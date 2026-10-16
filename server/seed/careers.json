@@ -1,0 +1,123 @@
+[
+  {
+    "title": "AI Engineer",
+    "category": "Artificial Intelligence",
+    "description": "Designs, trains and deploys machine learning and deep learning models into real applications.",
+    "requiredSkills": [
+      { "name": "Python", "importance": 3, "minLevel": "Advanced" },
+      { "name": "Machine Learning", "importance": 3, "minLevel": "Intermediate" },
+      { "name": "Deep Learning", "importance": 3, "minLevel": "Intermediate" },
+      { "name": "Mathematics", "importance": 2, "minLevel": "Intermediate" },
+      { "name": "TensorFlow", "importance": 2, "minLevel": "Intermediate" },
+      { "name": "SQL", "importance": 1, "minLevel": "Beginner" },
+      { "name": "Git", "importance": 1, "minLevel": "Beginner" }
+    ],
+    "interestTags": ["Artificial Intelligence", "Machine Learning", "Data Science", "Research"]
+  },
+  {
+    "title": "Data Scientist",
+    "category": "Data",
+    "description": "Analyzes large datasets, builds predictive models and communicates insights to guide decisions.",
+    "requiredSkills": [
+      { "name": "Python", "importance": 3, "minLevel": "Advanced" },
+      { "name": "Statistics", "importance": 3, "minLevel": "Intermediate" },
+      { "name": "Machine Learning", "importance": 3, "minLevel": "Intermediate" },
+      { "name": "SQL", "importance": 2, "minLevel": "Intermediate" },
+      { "name": "Data Visualization", "importance": 2, "minLevel": "Intermediate" },
+      { "name": "Pandas", "importance": 2, "minLevel": "Intermediate" },
+      { "name": "Communication", "importance": 1, "minLevel": "Intermediate" }
+    ],
+    "interestTags": ["Data Science", "Statistics", "Artificial Intelligence", "Research"]
+  },
+  {
+    "title": "Data Analyst",
+    "category": "Data",
+    "description": "Collects, cleans and analyzes data to produce reports and dashboards for business decisions.",
+    "requiredSkills": [
+      { "name": "SQL", "importance": 3, "minLevel": "Advanced" },
+      { "name": "Excel", "importance": 3, "minLevel": "Advanced" },
+      { "name": "Data Visualization", "importance": 3, "minLevel": "Intermediate" },
+      { "name": "Statistics", "importance": 2, "minLevel": "Intermediate" },
+      { "name": "Python", "importance": 2, "minLevel": "Intermediate" },
+      { "name": "Power BI", "importance": 2, "minLevel": "Intermediate" },
+      { "name": "Communication", "importance": 1, "minLevel": "Intermediate" }
+    ],
+    "interestTags": ["Data Science", "Business", "Statistics", "Analytics"]
+  },
+  {
+    "title": "Full Stack Developer",
+    "category": "Software Development",
+    "description": "Builds both the user interface and the server side of web applications.",
+    "requiredSkills": [
+      { "name": "JavaScript", "importance": 3, "minLevel": "Advanced" },
+      { "name": "React", "importance": 3, "minLevel": "Intermediate" },
+      { "name": "Node.js", "importance": 3, "minLevel": "Intermediate" },
+      { "name": "HTML", "importance": 2, "minLevel": "Advanced" },
+      { "name": "CSS", "importance": 2, "minLevel": "Intermediate" },
+      { "name": "MongoDB", "importance": 2, "minLevel": "Intermediate" },
+      { "name": "Git", "importance": 2, "minLevel": "Intermediate" },
+      { "name": "REST APIs", "importance": 2, "minLevel": "Intermediate" }
+    ],
+    "interestTags": ["Web Development", "Software Development", "Design", "Problem Solving"]
+  },
+  {
+    "title": "Backend Developer",
+    "category": "Software Development",
+    "description": "Builds the server-side logic, databases and APIs that power applications.",
+    "requiredSkills": [
+      { "name": "Node.js", "importance": 3, "minLevel": "Advanced" },
+      { "name": "REST APIs", "importance": 3, "minLevel": "Advanced" },
+      { "name": "SQL", "importance": 2, "minLevel": "Intermediate" },
+      { "name": "MongoDB", "importance": 2, "minLevel": "Intermediate" },
+      { "name": "Authentication", "importance": 2, "minLevel": "Intermediate" },
+      { "name": "Git", "importance": 2, "minLevel": "Intermediate" },
+      { "name": "Docker", "importance": 1, "minLevel": "Beginner" }
+    ],
+    "interestTags": ["Software Development", "Web Development", "Databases", "Problem Solving"]
+  },
+  {
+    "title": "Cybersecurity Analyst",
+    "category": "Security",
+    "description": "Protects systems and networks by monitoring threats, finding vulnerabilities and responding to incidents.",
+    "requiredSkills": [
+      { "name": "Networking", "importance": 3, "minLevel": "Intermediate" },
+      { "name": "Linux", "importance": 3, "minLevel": "Intermediate" },
+      { "name": "Security Fundamentals", "importance": 3, "minLevel": "Intermediate" },
+      { "name": "Python", "importance": 2, "minLevel": "Beginner" },
+      { "name": "Vulnerability Assessment", "importance": 2, "minLevel": "Intermediate" },
+      { "name": "Incident Response", "importance": 2, "minLevel": "Beginner" },
+      { "name": "Cryptography", "importance": 1, "minLevel": "Beginner" }
+    ],
+    "interestTags": ["Cybersecurity", "Networking", "Ethical Hacking", "Problem Solving"]
+  },
+  {
+    "title": "DevOps Engineer",
+    "category": "Cloud and Infrastructure",
+    "description": "Automates building, testing, deploying and monitoring software on cloud infrastructure.",
+    "requiredSkills": [
+      { "name": "Linux", "importance": 3, "minLevel": "Advanced" },
+      { "name": "Docker", "importance": 3, "minLevel": "Intermediate" },
+      { "name": "CI/CD", "importance": 3, "minLevel": "Intermediate" },
+      { "name": "Cloud Platforms", "importance": 3, "minLevel": "Intermediate" },
+      { "name": "Git", "importance": 2, "minLevel": "Advanced" },
+      { "name": "Kubernetes", "importance": 2, "minLevel": "Beginner" },
+      { "name": "Scripting", "importance": 2, "minLevel": "Intermediate" }
+    ],
+    "interestTags": ["Cloud Computing", "Automation", "Infrastructure", "Software Development"]
+  },
+  {
+    "title": "UI/UX Designer",
+    "category": "Design",
+    "description": "Researches user needs and designs intuitive, attractive interfaces and experiences.",
+    "requiredSkills": [
+      { "name": "Figma", "importance": 3, "minLevel": "Advanced" },
+      { "name": "User Research", "importance": 3, "minLevel": "Intermediate" },
+      { "name": "Wireframing", "importance": 3, "minLevel": "Intermediate" },
+      { "name": "Prototyping", "importance": 2, "minLevel": "Intermediate" },
+      { "name": "Visual Design", "importance": 2, "minLevel": "Intermediate" },
+      { "name": "HTML", "importance": 1, "minLevel": "Beginner" },
+      { "name": "CSS", "importance": 1, "minLevel": "Beginner" }
+    ],
+    "interestTags": ["Design", "Creativity", "User Experience", "Web Development"]
+  }
+]
