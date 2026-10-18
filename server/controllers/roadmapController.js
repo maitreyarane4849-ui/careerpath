@@ -2,7 +2,6 @@ const CareerReport = require('../models/CareerReport');
 const Roadmap = require('../models/Roadmap');
 const { generateRoadmap } = require('../services/ollamaService');
 
-// Generate a roadmap for a report (defaults to the user's latest report)
 exports.generate = async (req, res, next) => {
   try {
     const { reportId } = req.body;
@@ -38,7 +37,6 @@ exports.generate = async (req, res, next) => {
   }
 };
 
-// Latest roadmap of the logged-in user
 exports.getLatest = async (req, res, next) => {
   try {
     const roadmap = await Roadmap.findOne({ user: req.user._id }).sort('-createdAt');
@@ -49,7 +47,6 @@ exports.getLatest = async (req, res, next) => {
   }
 };
 
-// One roadmap by id (only if it belongs to the user)
 exports.getById = async (req, res, next) => {
   try {
     const roadmap = await Roadmap.findOne({ _id: req.params.id, user: req.user._id });
@@ -59,7 +56,7 @@ exports.getById = async (req, res, next) => {
     next(err);
   }
 };
-// Mark a task done or not done
+
 exports.toggleTask = async (req, res, next) => {
   try {
     const { done } = req.body;
@@ -85,7 +82,6 @@ exports.toggleTask = async (req, res, next) => {
   }
 };
 
-// Progress numbers for one roadmap
 exports.getProgress = async (req, res, next) => {
   try {
     const roadmap = await Roadmap.findOne({ _id: req.params.id, user: req.user._id });
@@ -107,7 +103,6 @@ function calcProgress(roadmap) {
   return { total, done, pending: total - done, percent: total ? Math.round((done / total) * 100) : 0, phases };
 }
 exports.calcProgress = calcProgress;
-// Roadmap that belongs to a specific report
 exports.getByReport = async (req, res, next) => {
   try {
     const roadmap = await Roadmap.findOne({ report: req.params.reportId, user: req.user._id }).sort('-createdAt');

@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react';
 
-// Fades and slides its content in when it scrolls into view
 export default function Reveal({ children, delay = 0, className = '' }) {
   const ref = useRef(null);
 

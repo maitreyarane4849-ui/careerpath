@@ -7,8 +7,8 @@ const resourceSchema = new mongoose.Schema(
     provider: { type: String, trim: true },
     url: { type: String, trim: true },
     description: { type: String, default: '' },
-    skills: [{ type: String, trim: true }],   // for 'learning': which skills it teaches
-    careers: [{ type: String, trim: true }],  // for 'project' and 'certification': which careers it suits
+    skills: [{ type: String, trim: true }],   
+    careers: [{ type: String, trim: true }],  
   },
   { timestamps: true }
 );

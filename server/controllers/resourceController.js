@@ -2,7 +2,6 @@ const Resource = require('../models/Resource');
 const CareerReport = require('../models/CareerReport');
 const { normalize } = require('../services/scoringService');
 
-// Recommended resources for a report (defaults to the latest one)
 exports.recommend = async (req, res, next) => {
   try {
     const report = req.query.reportId

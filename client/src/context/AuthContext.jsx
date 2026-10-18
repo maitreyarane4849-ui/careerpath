@@ -7,7 +7,6 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // On page load, check whether the saved token is still valid
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (!token) {

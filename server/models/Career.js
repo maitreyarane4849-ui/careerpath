@@ -19,7 +19,7 @@ const careerSchema = new mongoose.Schema(
     category: { type: String, trim: true },
     description: { type: String, required: true },
     requiredSkills: [requiredSkillSchema],
-    interestTags: [{ type: String, trim: true }], // used to match student interests
+    interestTags: [{ type: String, trim: true }], 
   },
   { timestamps: true }
 );

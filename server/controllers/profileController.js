@@ -4,7 +4,6 @@ const Roadmap = require('../models/Roadmap');
 
 const LEVELS = ['Beginner', 'Intermediate', 'Advanced'];
 
-// Get the logged-in user's profile
 exports.getProfile = async (req, res, next) => {
   try {
     const profile = await CareerProfile.findOne({ user: req.user._id });
@@ -17,7 +16,6 @@ exports.getProfile = async (req, res, next) => {
   }
 };
 
-// Create or update the profile (one endpoint for both)
 exports.saveProfile = async (req, res, next) => {
   try {
     const { education = {}, skills = [], interests = [], careerGoal = '' } = req.body;
@@ -29,7 +27,7 @@ exports.saveProfile = async (req, res, next) => {
       return res.status(400).json({ message: 'Add at least one skill' });
     }
 
-    // Clean skills: trim, validate level, remove duplicates (case-insensitive)
+    
     const seen = new Set();
     const cleanSkills = [];
     for (const s of skills) {
@@ -67,7 +65,7 @@ exports.saveProfile = async (req, res, next) => {
     next(err);
   }
 };
-// Merge new interests into the saved profile (used by the interest quiz)
+
 exports.addInterests = async (req, res, next) => {
   try {
     const incoming = Array.isArray(req.body.interests) ? req.body.interests : [];
@@ -94,7 +92,7 @@ exports.addInterests = async (req, res, next) => {
     next(err);
   }
 };
-// Delete the profile; optionally delete reports and roadmaps too
+
 exports.deleteProfile = async (req, res, next) => {
   try {
     await CareerProfile.deleteOne({ user: req.user._id });

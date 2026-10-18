@@ -15,7 +15,6 @@ const errorHandler = (err, req, res, next) => {
     message = 'Already exists';
   }
 
-  // Don't leak internal details in production
   if (status === 500 && process.env.NODE_ENV === 'production') {
     message = 'Server error';
   }
