@@ -67,14 +67,12 @@ Write:
 }
 
 async function callOllama(messages) {
-  // Hosted API mode (used on Render)
+  // Hosted API mode (Groq or any OpenAI-compatible provider), used on Render
   if (process.env.LLM_API_KEY) {
-    const base = process.env.LLM_BASE_URL; // e.g. https://provider.example/v1
+    const base = process.env.LLM_BASE_URL;
     const shape =
-      'Reply with JSON only, shaped like: {"summary": "text", "phases": [{"title": "text", "description": "text", "tasks": [{"title": "text", "type": "learn|practice|project"}]}]}';
-    const msgs = messages.map((m, i) =>
-      i === 0 ? { ...m, content: m.content + ' ' + shape } : m
-    );
+      ' Reply with JSON only, shaped like: {"summary": "text", "phases": [{"title": "text", "description": "text", "tasks": [{"title": "text", "type": "learn|practice|project"}]}]}';
+    const msgs = messages.map((m, i) => (i === 0 ? { ...m, content: m.content + shape } : m));
 
     const res = await fetch(`${base}/chat/completions`, {
       method: 'POST',
@@ -116,3 +114,48 @@ async function callOllama(messages) {
   const data = await res.json();
   return data.message.content;
 }
+
+// Parse and clean the model output. Throws if unusable.
+function validate(raw) {
+  const data = JSON.parse(raw);
+  if (typeof data.summary !== 'string' || !data.summary.trim()) {
+    throw new Error('Missing summary');
+  }
+  if (!Array.isArray(data.phases) || data.phases.length < 2) {
+    throw new Error('Too few phases');
+  }
+
+  const phases = data.phases
+    .map((p) => ({
+      title: String(p.title || '').trim(),
+      description: String(p.description || '').trim(),
+      tasks: (Array.isArray(p.tasks) ? p.tasks : [])
+        .map((t) => ({
+          title: String(t.title || '').trim(),
+          type: TASK_TYPES.includes(t.type) ? t.type : 'learn',
+        }))
+        .filter((t) => t.title),
+    }))
+    .filter((p) => p.title && p.tasks.length > 0);
+
+  if (phases.length < 2) throw new Error('Phases had no usable tasks');
+  return { summary: data.summary.trim(), phases };
+}
+
+async function generateRoadmap(profile, primary, attempts = 3) {
+  const messages = buildMessages(profile, primary);
+  let lastError;
+  for (let i = 1; i <= attempts; i++) {
+    try {
+      return validate(await callOllama(messages));
+    } catch (err) {
+      lastError = err;
+      console.warn(
+        `Roadmap attempt ${i} failed: ${err.message} | cause: ${err.cause?.code || err.cause?.message || 'none'}`
+      );
+    }
+  }
+  throw new Error(`AI generation failed after ${attempts} attempts: ${lastError.message}`);
+}
+
+module.exports = { generateRoadmap };
