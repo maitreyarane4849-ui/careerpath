@@ -23,18 +23,18 @@ export default function Profile() {
 
   const [careers, setCareers] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [busy, setBusy] = useState(''); // '', 'save', 'analyze'
+  const [busy, setBusy] = useState(''); 
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
 
-  // Load careers (for suggestions) and the existing profile (if any)
+  
   useEffect(() => {
     const load = async () => {
       try {
         const c = await api.get('/careers');
         setCareers(c.data.careers);
       } catch {
-        /* suggestions are optional */
+        
       }
       try {
         const res = await api.get('/profile');
@@ -117,7 +117,7 @@ export default function Profile() {
       await saveProfile();
       const res = await api.post('/analysis/full');
       if (res.data.warning) {
-        // report was saved, roadmap was not
+        
         sessionStorage.setItem('analysisWarning', res.data.warning);
       }
       navigate('/results');
@@ -141,14 +141,14 @@ export default function Profile() {
         <h2 className="font-semibold">Education</h2>
         <div className="grid sm:grid-cols-2 gap-4">
           <input
-            placeholder="Degree (e.g. B.Sc.) *"
+            placeholder="Degree (e.g. BTech, B.Sc., M.Sc.,other) *"
             value={education.degree}
             onChange={(e) => setEducation({ ...education, degree: e.target.value })}
             required
             className={inputClass}
           />
           <input
-            placeholder="Specialization (e.g. Computer Science)"
+            placeholder="Specialization (e.g. Computer Science, Data Science, etc.)"
             value={education.specialization}
             onChange={(e) => setEducation({ ...education, specialization: e.target.value })}
             className={inputClass}
